@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+    application:
+      name: spring-batch-postgres-maven
+
+    batch:
+      job:
+        enabled: false #Avoid to trigger a job directly when launching the application
+      jdbc:
+        initialize-schema: always #
+
+    datasource:
+      url: jdbc:postgresql://localhost:5432/springbatchdb1
+      username: postgres
+      password: admin
+      driver-class-name: org.postgresql.Driver
+    jpa:
+      hibernate:
+        ddl-auto: update # Options: none, update, create, create-drop
+      show-sql: true
+      properties:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
